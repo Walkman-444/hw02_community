@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
-{% block title %} Записи сообщества {{ group.title }}{% endblock %}
+{% block title %} Записи сообщества {{ group}}{% endblock %}
 
 {% block content %}
 
-<h1>{{ group.title }}</h1>
+<h1>{{ group}}</h1>
 
 {{ group.description }}
 
@@ -13,7 +13,6 @@
   <li>Дата публикации: {{ post.pub_date|date:"d E Y" }}</li>
 </ul>
   <p>{{ post.text }}</p>
-<hr>
+{% if not forloop.last %}<hr>{% endif %} 
 {% endfor %}
-{% include 'includes/footer.html' %}
 {% endblock %}
